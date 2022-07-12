@@ -1,0 +1,28 @@
+{
+  "name": "better-meet",
+  "version": "0.0.0",
+  "private": true,
+  "author": "**",
+  "description": "A chrome extension to warn if you\re exiting from a meet session",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "fmt": "prettier --write '**/*.{tsx,ts,json,css,scss,md}'"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^1.0.12",
+    "@types/chrome": "^0.0.193",
+    "@types/react": "^18.0.14",
+    "@types/react-dom": "^18.0.5",
+    "@vitejs/plugin-react": "^1.3.2",
+    "prettier": "^2.5.1",
+    "typescript": "^4.6.4",
+    "vite": "^2.9.13"
+  }
+}
