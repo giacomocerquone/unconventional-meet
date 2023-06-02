@@ -12,7 +12,7 @@ These are the features currently available:
 
 ## Screenshots
 
-![Screenshot 2023-06-03 alle 01 20 05](https://github.com/giacomocerquone/unconventional-meet/assets/9303791/04b2d576-cd51-4aa4-806c-506e09eeb636)
+![unconventional-meet-screenshot](https://github.com/giacomocerquone/unconventional-meet/assets/9303791/83e94c92-77d2-48b6-848d-be883a7da123)
 
 
 ## Developing
