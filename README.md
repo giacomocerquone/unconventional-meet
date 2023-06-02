@@ -10,6 +10,11 @@ These are the features currently available:
 - Click on the extension icon to focus Google Meet's tab
 - Auto-join the meeting instead of landing in the waiting room
 
+## Screenshots
+
+![Screenshot 2023-06-03 alle 01 20 05](https://github.com/giacomocerquone/unconventional-meet/assets/9303791/04b2d576-cd51-4aa4-806c-506e09eeb636)
+
+
 ## Developing
 
 1. Check if your [Node.js](https://nodejs.org/) version is >= **14**.
