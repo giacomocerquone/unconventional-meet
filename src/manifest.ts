@@ -1,7 +1,7 @@
 import { defineManifest } from '@crxjs/vite-plugin'
 
 export default defineManifest({
-  name: 'Beyond Meet',
+  name: 'Unconventional Meet',
   description: 'A chrome extension to enhance your meet calls',
   version: '0.0.1',
   manifest_version: 3,

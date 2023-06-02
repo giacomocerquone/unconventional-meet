@@ -34,7 +34,7 @@ function App() {
 
   return (
     <main>
-      <h3 style={styles.title}>Beyond Meet</h3>
+      <h3 style={styles.title}>Unconventional Meet</h3>
       <a href="https://giacomocerquone.com" target="_blank" rel="noopener noreferrer">
         Made in 🇮🇹 with ❤️ by g.cerquone
       </a>
