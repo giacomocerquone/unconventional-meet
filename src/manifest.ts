@@ -1,8 +1,8 @@
 import { defineManifest } from '@crxjs/vite-plugin'
 
 export default defineManifest({
-  name: 'better-meet',
-  description: 'A chrome extension to enhance your meet calls.',
+  name: 'Beyond Meet',
+  description: 'A chrome extension to enhance your meet calls',
   version: '0.0.1',
   manifest_version: 3,
   icons: {

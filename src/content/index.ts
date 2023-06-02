@@ -1,16 +1,28 @@
-console.info('chrome-ext template-react-ts content script')
+import { chromeStorageKey } from '../constants'
 
-export {}
-
-window.onbeforeunload = () => null
-
-window.addEventListener('beforeunload', (event) => {
-  if (document.querySelector('button[aria-label="Leave call"]')) {
-    event.preventDefault()
+const unloadHandler = (event: BeforeUnloadEvent) => {
+  if (document.querySelector('video')) {
+    // event.preventDefault() unsupported on chrome
     event.stopImmediatePropagation()
     event.stopPropagation()
     event.returnValue = 'Are you sure you want to leave?'
   } else {
     return
   }
+}
+
+chrome.storage.onChanged.addListener((changes) => {
+  if (changes[chromeStorageKey]?.newValue?.confirmExit) {
+    window.addEventListener('beforeunload', unloadHandler, true)
+  } else {
+    window.removeEventListener('beforeunload', unloadHandler, true)
+  }
 })
+
+chrome.storage.sync.get(chromeStorageKey, (data) => {
+  if (data[chromeStorageKey].confirmExit) {
+    window.addEventListener('beforeunload', unloadHandler, true)
+  }
+})
+
+export {}

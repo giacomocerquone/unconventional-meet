@@ -1,32 +1,46 @@
 import { useEffect } from 'react'
-import getMeetTab from '../api/getMeetTab'
+import getMeetTabID from '../api/getMeetTabID'
 import SettingsList from '../components/SettingsList'
 import './Popup.css'
+import useSettings from '../hooks/useSettings'
+
+const styles = {
+  title: { marginBottom: '0.5rem' },
+  settingsContainer: { display: 'flex' },
+} as const
 
 function App() {
+  const { settingsState, storedSettingsLoadingStatus } = useSettings()
+
+  const [settings] = settingsState
+
   useEffect(() => {
     const start = async () => {
-      const res = await getMeetTab()
+      if (settings.focusTab) {
+        const tabId = await getMeetTabID()
 
-      if (res?.[0]?.id) {
-        chrome.tabs.update(res[0].id, {
-          active: true,
-        })
+        if (tabId) {
+          chrome.tabs.update(tabId, {
+            active: true,
+          })
+        }
       }
     }
 
-    start()
-  }, [])
+    if (storedSettingsLoadingStatus === 'loaded') {
+      start()
+    }
+  }, [storedSettingsLoadingStatus])
 
   return (
     <main>
-      <h3 style={{ marginBottom: '0.5rem' }}>Better meet</h3>
+      <h3 style={styles.title}>Beyond meet</h3>
       <a href="https://giacomocerquone.com" target="_blank" rel="noopener noreferrer">
         Made in 🇮🇹 with ❤️ by g.cerquone
       </a>
 
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '.5rem' }}>
-        <SettingsList />
+      <div style={styles.settingsContainer}>
+        <SettingsList settingsState={settingsState} />
       </div>
 
       <h6>v 0.0.1</h6>
@@ -35,3 +49,10 @@ function App() {
 }
 
 export default App
+
+export interface SettingsFormValues {
+  focusTab: boolean
+  confirmExit: boolean
+  disableVideo: boolean
+  autoJoin: boolean
+}

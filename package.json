@@ -1,9 +1,9 @@
 {
-  "name": "better-meet",
+  "name": "beyond-meet",
   "version": "0.0.0",
   "private": true,
-  "author": "**",
-  "description": "A chrome extension to warn if you\re exiting from a meet session",
+  "author": "giacomocerquone",
+  "description": "A chrome extension to enhance your meet calls",
   "type": "module",
   "scripts": {
     "dev": "vite",

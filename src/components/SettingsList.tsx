@@ -1,102 +1,60 @@
-import React, { FunctionComponent, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { get, set } from '../api/storage'
+import Row from './Row'
+import { SettingsFormValues } from '../popup/Popup'
+import { chromeStorageKey } from '../constants'
 
 const styles = {
-  root: { flex: 1, maxWidth: '20rem' },
-  rowLabel: {
-    display: 'flex',
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    cursor: 'pointer',
-  },
-  checkbox: { height: '1rem', width: '1rem' },
-  name: { fontWeight: 'normal', marginBottom: '.5rem', marginTop: '.5rem', fontSize: '1rem' },
+  root: { flex: 1, maxWidth: '20rem', margin: 'auto' },
 } as const
 
-const Row: FunctionComponent<RowProps> = ({ label, value, name, onChange }) => {
-  return (
-    <label style={styles.rowLabel}>
-      <p style={styles.name}>{label}</p>
-      <input
-        name={name}
-        type="checkbox"
-        style={styles.checkbox}
-        onChange={onChange}
-        checked={value}
-      />
-    </label>
-  )
-}
-
-const SettingsList = () => {
-  const [form, setForm] = useState(initialForm)
-
-  useEffect(() => {
-    const start = async () => {
-      const res = (await get('form')) as { form: Form }
-      if (res.form) {
-        setForm(res.form)
-      }
-    }
-
-    start()
-  }, [])
-
+const SettingsForm = ({ settingsState: [settings, setSettings] }: Props) => {
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (evt) => {
-    setForm((state) => {
-      const newState = { ...state, [evt.target.name]: evt.target.checked }
-      set('form', newState)
+    setSettings((state) => {
+      try {
+        const newState = { ...state, [evt.target.name]: evt.target.checked }
+        set(chromeStorageKey, newState)
 
-      return newState
+        return newState
+      } catch (e) {
+        return state
+      }
     })
   }
 
   return (
     <div style={styles.root}>
-      <Row label="Auto join meetings" name="autoJoin" value={form.autoJoin} onChange={onChange} />
       <Row
-        label="Ask for confirmation before exit"
-        name="confirmExit"
-        value={form.confirmExit}
+        label="Auto join meetings"
+        name="autoJoin"
+        value={settings.autoJoin}
         onChange={onChange}
       />
       <Row
-        label="Disable your video for performance"
+        label="Ask for confirmation before exit"
+        description="Restart chrome after enabling this setting"
+        name="confirmExit"
+        value={settings.confirmExit}
+        onChange={onChange}
+      />
+      <Row
+        label="Improve performance hiding your video"
         name="disableVideo"
-        value={form.disableVideo}
+        value={settings.disableVideo}
         onChange={onChange}
       />
       <Row
         label="Focus meet tab on extension click"
         name="focusTab"
-        value={form.focusTab}
+        value={settings.focusTab}
         onChange={onChange}
       />
     </div>
   )
 }
 
-export default SettingsList
+export default SettingsForm
 
-const initialForm = {
-  autoJoin: false,
-  confirmExit: false,
-  disableVideo: false,
-  focusTab: false,
-}
-
-interface RowProps {
-  label: string
-  value?: boolean
-  name: string
-  onChange: React.ChangeEventHandler<HTMLInputElement>
-}
-
-interface Form {
-  focusTab: boolean
-  confirmExit: boolean
-  disableVideo: boolean
-  autoJoin: boolean
+interface Props {
+  settingsState: [SettingsFormValues, React.Dispatch<React.SetStateAction<SettingsFormValues>>]
 }
