@@ -15,13 +15,20 @@ const unloadHandler = (event: BeforeUnloadEvent) => {
 }
 
 const clickJoinbutton = () => {
+  let counter = 0
+
+  // After clicking we don't clear the interval
+  // because sometimes clicking the button the first time, doesn't work
   const intervalID = setInterval(() => {
     const joinButton = getJoinButton()
     if (joinButton) {
       joinButton.click()
+    }
+    counter++
+    if (counter >= 5) {
       clearInterval(intervalID)
     }
-  }, 500)
+  }, 1000)
 }
 
 const settingsManager = (settings: SettingsFormValues | undefined) => {

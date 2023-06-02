@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { get, set } from '../api/storage'
+import React from 'react'
+import { set } from '../api/storage'
 import Row from './Row'
 import { SettingsFormValues } from '../popup/Popup'
 import { chromeStorageKey } from '../constants'
@@ -37,12 +37,12 @@ const SettingsForm = ({ settingsState: [settings, setSettings] }: Props) => {
         value={settings.confirmExit}
         onChange={onChange}
       />
-      <Row
+      {/* <Row
         label="Improve performance hiding your video"
         name="disableVideo"
         value={settings.disableVideo}
         onChange={onChange}
-      />
+      /> */}
       <Row
         label="Focus meet tab on extension click"
         name="focusTab"

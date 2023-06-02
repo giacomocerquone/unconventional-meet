@@ -8,7 +8,7 @@ These are the features currently available:
 
 - Asking for confirmation before closing Google Meet's tab during a call
 - Click on the extension icon to focus Google Meet's tab
--
+- Auto-join the meeting instead of landing in the waiting room
 
 ## Developing
 
