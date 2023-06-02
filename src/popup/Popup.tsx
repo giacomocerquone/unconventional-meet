@@ -30,7 +30,7 @@ function App() {
     if (storedSettingsLoadingStatus === 'loaded') {
       start()
     }
-  }, [storedSettingsLoadingStatus])
+  }, [settings.autoJoin, settings.focusTab, storedSettingsLoadingStatus])
 
   return (
     <main>

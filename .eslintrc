@@ -1,1 +1,3 @@
-{ "webextensions": true }
+{
+  "extends": "react-app"
+}
