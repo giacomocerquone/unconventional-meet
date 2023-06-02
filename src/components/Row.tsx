@@ -18,10 +18,10 @@ const styles = {
 const Row = ({ label, value, name, onChange, description }: Props) => {
   return (
     <label style={styles.rowLabel}>
-      <p style={styles.label}>
-        {label}
+      <div>
+        <p style={styles.label}>{label}</p>
         {description && <p style={styles.description}>{description}</p>}
-      </p>
+      </div>
       <input
         name={name}
         type="checkbox"
