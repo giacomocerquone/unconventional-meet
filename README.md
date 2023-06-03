@@ -1,6 +1,6 @@
 # Unconventional Meet
 
-Tired of exiting from Google Meet calls by mistake? Or do you want to find where your call's tab is after gone through many websites during your call? This is the right Google Chrome extension for you!
+Tired of exiting from Google Meet calls by mistake? Or do you want to find where your call's tab is after you've opened a bunch of them during your call? This is the right chrome extension for you!
 
 ## Features
 
