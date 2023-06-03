@@ -14,6 +14,12 @@ These are the features currently available:
 
 ![unconventional-meet-screenshot](https://github.com/giacomocerquone/unconventional-meet/assets/9303791/83e94c92-77d2-48b6-848d-be883a7da123)
 
+ 
+## Contribute
+
+This is some needed stuff if you'd like to give a hand:
+
+- Develop a website through gh-pages to sponsor the extension a bit 
 
 ## Developing
 
