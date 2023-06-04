@@ -1,6 +1,11 @@
 # Unconventional Meet
 
+![](https://img.shields.io/chrome-web-store/v/bdhglnfaocjhkmbbkcpnippbkljpiini)
+
 Tired of exiting from Google Meet calls by mistake? Or do you want to find where your call's tab is after you've opened a bunch of them during your call? This is the right chrome extension for you!
+
+[Install it from the Chrome web store](https://chrome.google.com/webstore/detail/unconventional-meet/bdhglnfaocjhkmbbkcpnippbkljpiini?hl=it)
+
 
 ## Features
 
