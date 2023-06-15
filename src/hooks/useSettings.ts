@@ -40,4 +40,6 @@ const settingsFormInitialValues = {
   confirmExit: false,
   disableVideo: false,
   focusTab: false,
+  joinMuted: true,
+  joinBlind: true,
 }
