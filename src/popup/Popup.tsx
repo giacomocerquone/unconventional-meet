@@ -55,4 +55,6 @@ export interface SettingsFormValues {
   confirmExit: boolean
   disableVideo: boolean
   autoJoin: boolean
+  joinMuted: boolean
+  joinBlind: boolean
 }

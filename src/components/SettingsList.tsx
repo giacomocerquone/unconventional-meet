@@ -30,6 +30,24 @@ const SettingsForm = ({ settingsState: [settings, setSettings] }: Props) => {
         value={settings.autoJoin}
         onChange={onChange}
       />
+      {settings.autoJoin && (
+        <>
+          <Row
+            label=""
+            description="Turn off Camera while auto joining"
+            name="joinBlind"
+            value={settings.joinBlind}
+            onChange={onChange}
+          />
+          <Row
+            label=""
+            description="Mute while auto joining"
+            name="joinMuted"
+            value={settings.joinMuted}
+            onChange={onChange}
+          />
+        </>
+      )}
       <Row
         label="Ask for confirmation before exit"
         description="Restart chrome after enabling this setting"
